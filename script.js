@@ -28,20 +28,25 @@ const positivePhrase = [
 //function returning a random element from the above arrays.
 const getRandomPhrase = (array) => {
   let randomInd = Math.floor(Math.random() * array.length);
-  return array[randomInd];
+  let phrase = array[randomInd];
+
+  switch (array) {
+    case randomActsOfKindness:
+      return `Today, your random act of kindness is: "${phrase}"`;
+      break;
+    case motivationalMessage:
+      return `Your motivational message for the day is: "${phrase}"`;
+      break;
+    case positivePhrase:
+      return `Finally, don't forget...${phrase}👍`;
+      break;
+    default:
+      return "Not enough information, please try again.";
+      break;
+  }
 };
 
-//Logging messages to the console.
-console.log(
-  `Today, your random act of kindness is: "${getRandomPhrase(
-    randomActsOfKindness
-  )}"`
-);
-
-console.log(
-  `Your motivational message for the day is: "${getRandomPhrase(
-    motivationalMessage
-  )}"`
-);
-
-console.log(`Finally, don't forget...${getRandomPhrase(positivePhrase)}👍`);
+//Calling the function with the different arguments.
+console.log(getRandomPhrase(randomActsOfKindness));
+console.log(getRandomPhrase(motivationalMessage));
+console.log(getRandomPhrase(positivePhrase));
