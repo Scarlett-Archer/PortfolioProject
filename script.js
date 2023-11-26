@@ -25,11 +25,13 @@ const positivePhrase = [
   "You're doing great!",
 ];
 
+//function returning a random element from the above arrays.
 const getRandomPhrase = (array) => {
   let randomInd = Math.floor(Math.random() * array.length);
   return array[randomInd];
 };
 
+//Logging messages to the console.
 console.log(
   `Today, your random act of kindness is: "${getRandomPhrase(
     randomActsOfKindness
